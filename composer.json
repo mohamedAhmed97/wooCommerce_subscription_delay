@@ -1,0 +1,17 @@
+{
+    "name": "amrawey/listcsv",
+    "description": "list all woo product in CSV file",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mohamed Ahmed",
+            "email": "mohamed.ramadan@objects.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc"
+        }
+    }
+}
