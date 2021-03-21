@@ -10,8 +10,7 @@
 use Inc\Active;
 use Inc\Deactive;
 
-define('WP_ListCSV_PATH', plugin_dir_path(__FILE__));
-define('WP_ListCSV_FILE', __FILE__);
+define('WP_DELAY_FILE', __FILE__);
 if (!defined('ABSPATH')) {
     die;
 }
@@ -21,4 +20,24 @@ if (file_exists(dirname(__FILE__) . "/vendor/autoload.php")) {
 }
 if (class_exists('Inc\\Init')) {
     Inc\Init::registerServices();
+}
+if (!class_exists('Wp_delay')) {
+    class Wp_delay
+    {
+        function __construct()
+        {
+            register_activation_hook(WP_DELAY_FILE, 'delay_plugin_activate');
+            register_deactivation_hook(WP_DELAY_FILE, 'delay_plugin_deactivate');
+        }
+        //activate
+        function listcsv_plugin_activate()
+        {
+            Active::active();
+        }
+        //deactivate
+        function listcsv_plugin_deactivate()
+        {
+            Deactive::deactive();
+        }
+    }
 }

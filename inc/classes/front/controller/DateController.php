@@ -1,14 +1,10 @@
 <?php
 
 namespace Inc\classes\front\controller;
-
-use Inc\classes\admin\controller\BaseController;
-
-final class TemplateController extends BaseController
+final class DateController 
 {
     public static function calcuate_date($date)
     {
-        // $date = explode(" ", $date)[0];
         $next_date = strtotime($date);
         $today = strtotime(date("Y-m-d"));
         // number of days 
